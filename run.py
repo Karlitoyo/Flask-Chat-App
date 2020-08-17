@@ -3,7 +3,7 @@ from datetime import datetime
 from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET, "f")
+app.secret_key = os.getenv("SECRET)
 messages = []
 
 def add_message(username, message):

@@ -1,8 +1,9 @@
 import os
 from datetime import datetime
-from flask import Flask, redirect
+from flask import Flask, redirect, render_template, request, session
 
 app = Flask(__name__)
+app.secret_key = "randomstring123"
 messages = []
 
 def add_messages(username, message):
@@ -17,7 +18,7 @@ def get_all_messages():
 @app.route('/')
 def index():
     """Main page with instructions"""
-    return "<h1>To send a message use /USERNAME/MESSAGE</h1>"
+    return render_template("index.html")
 
 @app.route('/<username>')
 def user(username):

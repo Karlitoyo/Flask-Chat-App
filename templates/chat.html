@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <title>Chat Page for {{ username }}</title>
-<body>
-    <h1>Welcome to the chat app, {{ username }}</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+        <title>Chat Page for {{ username }}</title>
+    </head>
+    <body>
+        <h1>Welcome to the chat app, {{ username }}</h1>
 
-    <form method="POST">
-        <textarea cols="50" rows="4" name="message" id="message"></textarea>
-        <br>
-        <button>Send Message!</button>
-    </form>
+        <form method="POST">
+            <textarea cols="50" rows="4" name="message" id="message"></textarea>
+            <br>
+            <button>Send Message!</button>
+        </form>
 
-    {% for message in chat_messages %}
-        <p>({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
-    {% endfor %}
+        {% for message in chat_messages %}
+            <p>({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+        {% endfor %}
 
-    <script>
+        <script>
 
-    let textbox = document.GetElementById("message")
+        let textbox = document.GetElementById("message")
 
 
-    let timer = setTimeout(function(){
-        location.reload();
-    }, 5000)
-
-    textbox.onkeydown = function(e){
-        clearTimeout(timer)
-
-        timer = setTimeout(function(){
+        let timer = setTimeout(function(){
             location.reload();
         }, 5000)
-    }
 
-    </script>
-</body>
+        textbox.onkeydown = function(e){
+            clearTimeout(timer)
+
+            timer = setTimeout(function(){
+                location.reload();
+            }, 5000)
+        }
+
+        </script>
+    </body>
 </html>

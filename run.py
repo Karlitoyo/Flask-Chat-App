@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 from flask import Flask, redirect, render_template, request, session, url_for
 
-app = Flask(__name__)
+app = Flask(__name__,)
 app.secret_key = os.getenv("SECRET", "randomstring123")
 messages = []
 
